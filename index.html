@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WI Education Global</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset and Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+      line-height: 1.6;
+      color: #fff;
+      overflow-x: hidden;
+      background: linear-gradient(135deg, #0b4d85 0%, #2c1470 100%);
+    }
+    
+    section {
+      padding: 100px 5%;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    /* Header and Navigation */
+    header {
+      background-color: rgba(11, 77, 133, 0.95);
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      padding: 20px 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 5%;
+    }
+    
+    .logo {
+      font-size: 32px;
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+    
+    .logo span {
+      color: #3cbce1;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-links li {
+      margin-left: 30px;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.3s;
+      font-size: 16px;
+    }
+    
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #3cbce1;
+    }
+    
+    .menu-btn {
+      display: none;
+      color: #fff;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background-color: #3cbce1;
+      color: white;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+      margin: 0 10px 10px 0;
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .btn:hover {
+      background-color: #2ba8cd;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn.secondary {
+      background-color: transparent;
+      border: 2px solid #3cbce1;
+      color: #3cbce1;
+    }
+    
+    .btn.secondary:hover {
+      background-color: #3cbce1;
+      color: white;
+    }
+    
+    /* Hero Section with Background Image */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+    }
+    
+    .background-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(11, 77, 133, 0.85) 0%, rgba(44, 20, 112, 0.85) 100%);
+      z-index: 0;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      padding: 0 20px;
+      margin-left: 5%;
+    }
+    
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #e0e0e0;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      animation: bounce 2s infinite;
+      color: white;
+      font-size: 24px;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+      }
+      40% {
+        transform: translateY(-20px) translateX(-50%);
+      }
+      60% {
+        transform: translateY(-10px) translateX(-50%);
+      }
+    }
+    
+    /* Section Styles */
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .section-title h2 {
+      font-size: 3rem;
+      color: #fff;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 15px;
+    }
+    
+    .section-title h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: #3cbce1;
+    }
+    
+    /* About Section */
+    .about {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+    
+    .about-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .about-text h3 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: #3cbce1;
+    }
+    
+    .about-text p {
+      margin-bottom: 20px;
+      color: #e0e0e0;
+      font-size: 1.1rem;
+    }
+    .about {
+      background: linear-gradient(rgba(11, 77, 133, 0.8), rgba(44, 20, 112, 0.8)), url('images/haha.png');
+      background-size: cover;
+      background-position: center;
+    }
+    .about-image {
+      flex: 1;
+      min-width: 300px;
+      text-align: center;
+    }
+    
+    .about-image img {
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Services Section */
+    .services {
+      background: linear-gradient(135deg, #0d5a9c 0%, #301684 100%);
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .service-card {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 40px 30px;
+      text-align: center;
+      transition: all 0.3s;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .service-icon {
+      font-size: 50px;
+      color: #3cbce1;
+      margin-bottom: 25px;
+    }
+    
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+    
+    .service-card p {
+      color: #e0e0e0;
+    }
+    
+    /* Team Section */
+    .team {
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 40px;
+    }
+    
+    .team-member {
+      text-align: center;
+      transition: all 0.3s;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 30px 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .team-member:hover {
+      transform: translateY(-10px);
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .team-photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 25px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      border: 3px solid #3cbce1;
+    }
+    
+    .team-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .team-member h3 {
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 5px;
+    }
+    
+    .team-member p {
+      color: #3cbce1;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    
+    .social-links a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      line-height: 40px;
+      color: #fff;
+      transition: all 0.3s;
+    }
+    
+    .social-links a:hover {
+      background-color: #3cbce1;
+      color: white;
+    }
+    
+    /* Contact Section */
+    .contact {
+      background: linear-gradient(135deg, #104f8b 0%, #29176d 100%);
+    }
+    
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    /* Contact Section */
+.contact {
+  background: linear-gradient(135deg, rgba(16, 79, 139, 0.85) 0%, rgba(41, 23, 109, 0.85) 100%), 
+              url('images/contact.PNG');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+    
+    .contact-info {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .contact-info h3 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #3cbce1;
+    }
+    
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 25px;
+    }
+    
+    .info-icon {
+      margin-right: 15px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: rgba(60, 188, 225, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #3cbce1;
+      font-size: 20px;
+    }
+    
+    .info-details h4 {
+      font-size: 1.3rem;
+      color: #fff;
+      margin-bottom: 5px;
+    }
+    
+    .info-details p, .info-details a {
+      color: #e0e0e0;
+      text-decoration: none;
+    }
+    
+    .contact-form {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .contact-form h3 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #3cbce1;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+      font-size: 16px;
+      background-color: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      transition: all 0.3s;
+    }
+    
+    .form-control:focus {
+      border-color: #3cbce1;
+      outline: none;
+      box-shadow: 0 0 10px rgba(60, 188, 225, 0.3);
+    }
+    
+    .form-control::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+    
+    textarea.form-control {
+      height: 150px;
+      resize: vertical;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: rgba(11, 50, 87, 0.95);
+      color: white;
+      padding: 50px 5% 20px;
+    }
+    
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+    
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+    }
+    
+    .footer-column h3 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+      color: #3cbce1;
+    }
+    
+    .footer-column h3:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background-color: #3cbce1;
+    }
+    
+    .footer-column p {
+      margin-bottom: 15px;
+      color: #bbb;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: #bbb;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: #3cbce1;
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .footer-bottom p {
+      color: #bbb;
+    }
+    
+    /* Request Quote Button */
+    .quote-btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background-color: transparent;
+      border: 2px solid #3cbce1;
+      color: #3cbce1;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .quote-btn:hover {
+      background-color: #3cbce1;
+      color: white;
+    }
+    
+    /* Responsive Design */
+    @media screen and (max-width: 991px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2.5rem;
+      }
+    }
+    
+    @media screen and (max-width: 768px) {
+      .menu-btn {
+        display: block;
+      }
+      
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(11, 77, 133, 0.95);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        transition: all 0.4s;
+      }
+      
+      .nav-links.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+      
+      .nav-links li {
+        margin: 12px 0;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .about-content {
+        flex-direction: column;
+      }
+      
+      .about-text, .about-image {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 30px;
+      }
+      
+      .quote-btn {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header and Navigation -->
+  <header>
+    <nav class="navbar">
+      <a href="#" class="logo">WI <span>Education Global</span></a>
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About Us</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#team" class="nav-link">Our Team</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="#contact" class="quote-btn">Request a Quote</a></li>
+      </ul>
+      <div class="menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+  </header>
+  
+  <!-- Home Section with Background Image -->
+  <section id="home" class="hero">
+    <!-- Background Image -->
+    <img class="background-image" src="../WI Global/images/mark.png" alt="Global Education Background">
+    
+    <div class="hero-content">
+      <h1>Transforming Global Education</h1>
+      <p>WI Education Global is committed to providing world-class educational services that bridge cultures and connect students to opportunities worldwide.</p>
+      <div class="hero-buttons">
+        <a href="#services" class="btn">Our Services</a>
+        <a href="#contact" class="btn secondary">Get in Touch</a>
+      </div>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+  
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>About Us</h2>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Who We Are</h3>
+          <p>WI Education Global was founded in 2015 with a vision to connect educational opportunities across borders. We're a team of dedicated professionals with extensive experience in international education, cultural exchange programs, and academic consulting.</p>
+          <p>Our mission is to empower students and institutions through accessible, quality education that transcends geographical boundaries. We believe that education is the most powerful tool for positive change, and we're committed to making it accessible to all.</p>
+          <a href="#contact" class="btn">Learn More</a>
+        </div>
+        <div class="about-image">
+          <img src="images/stu.png" alt="WI Education Global Team">
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Services Section -->
+<section id="services" class="services">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Services</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-book-open"></i>
+        </div>
+        <h3>Test Preparation</h3>
+        <p>Expert coaching for standardized tests like IELTS, TOEFL, SAT, GRE, and GMAT with personalized study plans and practice materials to maximize your scores.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-comments"></i>
+        </div>
+        <h3>Interview Assistance</h3>
+        <p>One-on-one mock interviews and coaching sessions to help you confidently navigate university and visa interviews with strategic guidance on common questions.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-hand-holding-usd"></i>
+        </div>
+        <h3>Scholarship and Financial Aid</h3>
+        <p>Comprehensive support in identifying and applying for scholarships, grants, and financial aid opportunities to make your education abroad more affordable.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-file-alt"></i>
+        </div>
+        <h3>Documentation Guidance</h3>
+        <p>Step-by-step assistance with preparing and organizing all required documents for applications, visas, and immigration processes with attention to detail.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-user-graduate"></i>
+        </div>
+        <h3>College Admissions Consulting</h3>
+        <p>Personalized guidance throughout the entire college selection and admissions process, tailored to your academic profile, career goals, and preferences.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-university"></i>
+        </div>
+        <h3>University Application Assistance</h3>
+        <p>End-to-end support with university applications, including profile evaluation, essay review, and submission guidance to increase your chances of acceptance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+  
+  <!-- Team Section -->
+  <section id="team" class="team">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Team</h2>
+      </div>
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="team-photo">
+            <img src="/api/placeholder/400/400" alt="merry">
+          </div>
+          <h3>Sarah Johnson</h3>
+          <p>Founder & CEO</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="team-member">
+          <div class="team-photo">
+            <img src="/api/placeholder/400/400" alt="merry">
+          </div>
+          <h3>Michael Chen</h3>
+          <p>Director of International Programs</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="team-member">
+          <div class="team-photo">
+            <img src="/api/placeholder/400/400" alt="merry">
+          </div>
+          <h3>Elena Rodriguez</h3>
+          <p>Head of Academic Affairs</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="team-member">
+          <div class="team-photo">
+            <img src="/api/placeholder/400/400" alt="merry">
+          </div>
+          <h3>David Okafor</h3>
+          <p>Student Relations Manager</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Contact Section -->
+   
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact Us</h2>
+      </div>
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="info-details">
+              <h4>Our Location</h4>
+              <p>123 Global Education Avenue, Madison, WI 53703, United States</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="info-details">
+              <h4>Call Us</h4>
+              <p>+1 (608) 555-0123</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="info-details">
+              <h4>Email Us</h4>
+              <p>info@wieducationglobal.org</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="info-details">
+              <h4>Office Hours</h4>
+              <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <h3>Send Us a Message</h3>
+          <form action="#" method="post" id="contactForm">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Subject">
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>About WI Education Global</h3>
+          <p>We are dedicated to transforming education through global connections, cultural exchange, and innovative programs that prepare students for success in an interconnected world.</p>
+        </div>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#team">Our Team</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Services</h3>
+          <ul class="footer-links">
+            <li><a href="#services">Test Preparation</a></li>
+            <li><a href="#services">Interview Assistance</a></li>
+            <li><a href="#services">Scholarship and Financial Aid</a></li>
+            <li><a href="#services">Documentation Guidance</a></li>
+            <li><a href="#services">College Admissions Consulting</a></li>
+            <li><a href="#services">University Application Assistance</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Connect With Us</h3>
+          <ul class="footer-links">
+            <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+            <li><a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 WI Education Global. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+<!-- The JavaScript section was incomplete, so I'm completing it below -->
+<script>
+  // Navigation Menu Toggle
+  const menuBtn = document.querySelector('.menu-btn');
+  const navLinks = document.querySelector('.nav-links');
+  
+  menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+  
+  // Active Navigation Link
+  const navLink = document.querySelectorAll('.nav-link');
+  
+  navLink.forEach(link => {
+    link.addEventListener('click', () => {
+      navLink.forEach(navItem => navItem.classList.remove('active'));
+      link.classList.add('active');
+      // Close mobile menu when a link is clicked
+      navLinks.classList.remove('active');
+    });
+  });
+  
+  // Smooth Scroll Behavior
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+  
+  // Form Submission
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form values
+      const formData = new FormData(this);
+      const formValues = {};
+      
+      formData.forEach((value, key) => {
+        formValues[key] = value;
+      });
+      
+      // Here you would typically send the form data to a server
+      // For demonstration, we'll just show an alert
+      alert('Thank you for your message! We will get back to you soon.');
+      this.reset();
+    });
+  }
+  
+  // Scroll Animation for Elements
+  window.addEventListener('scroll', function() {
+    const scrollPosition = window.scrollY;
+    const header = document.querySelector('header');
+    
+    // Add shadow to header on scroll
+    if (scrollPosition > 50) {
+      header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.3)';
+    } else {
+      header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.2)';
+    }
+  });
+</script>
+</body>
+</html>
